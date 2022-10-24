@@ -1,6 +1,11 @@
 <template>
   <div>
-    <h1>Clientes</h1>
+    <div class="d-flex justify-content-center">
+      <h2 class="text-center">Clientes Filho 1</h2>
+      <button class="ms-3" @click="clicou(mensagemCliente)">
+        Enviar mensagem
+      </button>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -34,34 +39,48 @@
 export default {
   data() {
     return {
-      dados: [
-        {
-          nome: "Dimas",
-          email: "dimas@gmail.com",
-          telefone: "(01)1234-5678",
-          dataNascimento: "01/01/2001",
-        },
-        {
-          nome: "Mariana",
-          email: "mariana@gmail.com",
-          telefone: "(01)1234-5678",
-          dataNascimento: "01/01/2001",
-        },
-        {
-          nome: "Gideão",
-          email: "gideao@gmail.com",
-          telefone: "(01)1234-5678",
-          dataNascimento: "01/01/2001",
-        },
-        {
-          nome: "Ana Karolina",
-          email: "anakarolina@gmail.com",
-          telefone: "(01)1234-5678",
-          dataNascimento: "01/01/2001",
-        },
-      ],
+      mensagemCliente: "Essa mensagem veio do Cliente Filho 1... ",
     };
   },
+  props: {
+    dados: Array,
+  },
+  methods: {
+    clicou(mensagemCliente) {
+      this.$emit("clicou", mensagemCliente);
+    },
+  },
+
+  // data() {
+  //   return {
+  //     dados: [
+  //       {
+  //         nome: "Dimas",
+  //         email: "dimas@gmail.com",
+  //         telefone: "(01)1234-5678",
+  //         dataNascimento: "01/01/2001",
+  //       },
+  //       {
+  //         nome: "Mariana",
+  //         email: "mariana@gmail.com",
+  //         telefone: "(01)1234-5678",
+  //         dataNascimento: "01/01/2001",
+  //       },
+  //       {
+  //         nome: "Gideão",
+  //         email: "gideao@gmail.com",
+  //         telefone: "(01)1234-5678",
+  //         dataNascimento: "01/01/2001",
+  //       },
+  //       {
+  //         nome: "Ana Karolina",
+  //         email: "anakarolina@gmail.com",
+  //         telefone: "(01)1234-5678",
+  //         dataNascimento: "01/01/2001",
+  //       },
+  //     ],
+  //   };
+  // },
 };
 </script>
 

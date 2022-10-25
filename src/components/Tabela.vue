@@ -4,11 +4,13 @@
     <h2 class="text-center">Página Tabela Pai</h2>
     <h4>Mensagem recebida: {{ mensagemTabela }}</h4>
 
-    <p>Mensagem: {{ mensagem }}</p>
+    <h6>Mensagem Filho 1: {{ mensagem }}</h6>
+
+    <h6>DB Filho 2: {{ dadosDb[0] }} | {{ dadosDb[1] }} | {{ dadosDb[2] }}</h6>
 
     <hr />
     <Clientes :dados="dados" @clicou="recebi" />
-    <Produtos :dadosProdutos="dadosProdutos" />
+    <Produtos :dadosProdutos="dadosProdutos" @dadosDb="recebiDb" />
     <hr />
   </div>
 </template>
@@ -29,9 +31,13 @@ export default {
       //   alert("O filho clicou...");
       this.mensagem = mensagemCliente;
     },
+    recebiDb(db) {
+      this.dadosDb = db;
+    },
   },
   data() {
     return {
+      dadosDb: "",
       mensagem: "",
       dados: [
         {

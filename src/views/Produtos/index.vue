@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h2 class="text-center">Produtos Filho 2</h2>
+    <div class="d-flex justify-content-center">
+      <h2>Produtos Filho 2</h2>
+      <button class="text-center ms-3" @click="passaDb(db)">Passando db</button>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -26,6 +29,20 @@
 
 <script>
 export default {
+  data() {
+    return {
+      db: [
+        { cor: "Azul", tamanho: "M", marca: "Bacana" },
+        { cor: "Preto", tamanho: "G", marca: "Top" },
+        { cor: "Laranja", tamanho: "GG", marca: "Show" },
+      ],
+    };
+  },
+  methods: {
+    passaDb(db) {
+      this.$emit("dadosDb", db);
+    },
+  },
   props: {
     dadosProdutos: Array,
   },

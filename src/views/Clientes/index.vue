@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex justify-content-center">
-      <h2 class="text-center">Clientes Filho 1</h2>
+      <h2>Clientes Filho 1</h2>
       <button class="ms-3" @click="clicou(mensagemCliente)">
         Enviar mensagem
       </button>
